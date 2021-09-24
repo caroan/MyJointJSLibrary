@@ -1,0 +1,24 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="node_modules/jointjs/dist/joint.css" />
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/lodash/lodash.js"></script>
+    <script src="node_modules/backbone/backbone.js"></script>
+    <script src="node_modules/jointjs/dist/joint.js"></script>
+    <script src="myModels.js"></script>
+</head>
+<body>
+    <div id="myPage"></div>
+    <script>
+        var myGraph = new joint.dia.Graph;
+
+        var myPaper = new joint.dia.Paper({
+            el: document.getElementById("myPage"),
+            model: myGraph,
+            width: 800,
+            height: 800,
+            gridSize: 1
+        });
+    </script>
+</body>
+</html>

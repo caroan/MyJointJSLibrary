@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="node_modules/jointjs/dist/joint.css" />
+</head>
+<body>
+    <div id="myPage"></div>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/lodash/lodash.js"></script>
+    <script src="node_modules/backbone/backbone.js"></script>
+    <script src="node_modules/jointjs/dist/joint.js"></script>
+
+    <!-- code -->
+    <script type="text/javascript">
+
+        var myGraph = new joint.dia.Graph;
+
+        var myPage = new joint.dia.Paper({
+            el: document.getElementById('myPage'),
+            model: myGraph,
+            width: 800,
+            height: 800,
+            gridSize: 1
+        });
+
+        var rect = new joint.shapes.standard.Rectangle();
+        rect.position(100, 30);
+        rect.resize(100, 40);
+        rect.attr({
+            body: {
+                fill: 'blue'
+            },
+            label: {
+                text: 'Hello',
+                fill: 'white'
+            }
+        });
+        rect.addTo(myGraph);
+
+        var rect2 = rect.clone();
+        rect2.translate(300, 0);
+        rect2.attr('label/text', 'World!');
+        rect2.addTo(myGraph);
+
+        var link = new joint.shapes.standard.Link();
+        link.source(rect);
+        link.target(rect2);
+        link.addTo(myGraph);
+
+    </script>
+</body>
+</html>
